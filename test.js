@@ -97,21 +97,23 @@ function checkSolution (fn, inputs, fileouput) {
 
   fs.readFile("./output/" + fileouput, function (err, data) {
     console.log(clc.yellow("Review") + " " + clc.cyan(fileouput));
-    var outdata = data.toString().split(/\n/);
-    var sol = 0;
-    for (var i = 0; i < posiblesolutions.length; i ++) {
-      var num = i + 1;
-      if (outdata[i].toString() != "" && outdata[i].toString() == posiblesolutions[i].toString()) {
-        sol++;
-        console.log("Test " +  num + " " + clc.green("   pass \u2713"));
-      } else {
-        console.log("Test " +  num + " " + clc.red("no pass \u2718"));
+    if (data != undefined) {
+      var outdata = data.toString().split(/\n/);
+      var sol = 0;
+      for (var i = 0; i < posiblesolutions.length; i ++) {
+        var num = i + 1;
+        if (outdata[i].toString() != "" && outdata[i].toString() == posiblesolutions[i].toString()) {
+          sol++;
+          console.log("Test " +  num + " " + clc.green("   pass \u2713"));
+        } else {
+          console.log("Test " +  num + " " + clc.red("no pass \u2718"));
+        }
       }
-    }
-    if (sol == posiblesolutions.length) {
-      console.log(clc.green(fileouput + " " + "Correcto"))
-    } else {
-      console.log(clc.red(fileouput + " " + "Incorrecto"))
+      if (sol == posiblesolutions.length) {
+        console.log(clc.green(fileouput + " " + "Correcto"))
+      } else {
+        console.log(clc.red(fileouput + " " + "Incorrecto"))
+      }
     }
   });
 }

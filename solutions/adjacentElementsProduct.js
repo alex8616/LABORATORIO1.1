@@ -17,4 +17,4 @@ function inputarray(array)
   }
   return b;
 }
-console.log(inputarray([3,6,-2,-5,7,3]));
+console.log(inputarray([3,6,-2,-3,7,3]));

@@ -21,4 +21,4 @@ function longestDigitsPrefix(str1)
 	}
 	return r
 }
-console.log(longestDigitsPrefix("1349dasd sds"));
+console.log(longestDigitsPrefix("1348dasd sds"));
